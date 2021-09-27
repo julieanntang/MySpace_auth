@@ -3,11 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import AuthProvider from './providers/AuthProvider';
+import { BrowserRouter as Router } from 'react-router-dom';
+import "semantic-ui-css/semantic.min.css";
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <AuthProvider>
+    <Router>
+      <App />
+    </Router>
+  </AuthProvider>,
   document.getElementById('root')
 );
 
