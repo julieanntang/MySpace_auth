@@ -8,11 +8,12 @@ export const AuthConsumer = AuthContext.Consumer;
 const AuthProvider = (props) => {
   const [user, setUser] = useState(null);
   
-  const handleRegister = async (user) => {
+  const handleRegister = async (user, history) => {
     console.log("register user", user);
     try {
       let res = await axios.post("/api/auth", user);
       setUser(res.data.data)
+      history.push("/");
     } catch (err) {
       alert("unsuccessful register. check console")
       console.log("error")
@@ -20,12 +21,13 @@ const AuthProvider = (props) => {
     }
   };
 
-  const handleLogin = async (user) => {
+  const handleLogin = async (user, history) => {
     console.log("login user", user);
     try {
       let res = await axios.post("/api/auth/sign_in", user);
       console.log(res);
       setUser(res.data.data);
+      history.push("/");
     } catch (err) {
       alert("error");
       console.log(err);
@@ -33,10 +35,11 @@ const AuthProvider = (props) => {
     }
   };
 
-  const handleLogout = () => {
+  const handleLogout = (history) => {
     console.log("logout user")
     setUser(null);
     localStorage.removeItem("access-token");
+    history.push("/login")
   };
 
   return (

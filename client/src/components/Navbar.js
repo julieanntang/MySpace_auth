@@ -2,15 +2,18 @@ import React, { useContext } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { Menu } from "semantic-ui-react";
 import { AuthContext } from "../providers/AuthProvider";
+import { useHistory } from "react-router";
+
 
 
 const Navbar = (props) => {
+  const history = useHistory();
   const { user, handleLogout } = useContext(AuthContext);
   const { location } = props;
 
   const rightNavItems = () => {
     if (user) {
-      return <Menu.Item onClick={() => handleLogout()}>Logout</Menu.Item>
+      return <Menu.Item onClick={() => handleLogout(history)}>Logout</Menu.Item>
     }
     return (
       <>

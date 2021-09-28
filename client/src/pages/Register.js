@@ -1,8 +1,10 @@
 import React, { useContext, useState } from "react";
 import { Button, Form } from "semantic-ui-react";
 import { AuthContext } from "../providers/AuthProvider";
+import { useHistory } from "react-router";
 
 const Register = (props) => {
+  const history = useHistory();
   const [email, setEmail] = useState("test@test.com")
   const [password, setPassword] = useState("123456")
   const [passwordConfirmation, setPasswordConfirmation] = useState("123456")
@@ -13,7 +15,7 @@ const Register = (props) => {
       alert("passwords do not match");
       return;
     }
-    handleRegister({ email, password });
+    handleRegister({ email, password }, history );
   };
   
   return (
