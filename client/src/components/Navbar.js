@@ -27,6 +27,9 @@ const Navbar = (props) => {
 
   return (
     <Menu>
+      <Link to="/">
+          <Menu.Item active={location.pathname === "/"}>Home</Menu.Item>
+        </Link>
       <Menu.Menu position ="right">{rightNavItems()}</Menu.Menu>
     </Menu>
   );

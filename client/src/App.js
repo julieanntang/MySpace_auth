@@ -5,6 +5,8 @@ import Register from './pages/Register';
 import Navbar from './components/Navbar';
 import Login from './pages/Login';
 import FetchUser from './components/FetchUser';
+import ProtectedRoute from './components/ProtectedRoute';
+import Home from './pages/Home';
 
 
 function App() {
@@ -14,6 +16,7 @@ function App() {
       <FetchUser>
         <Container>
           <Switch>
+            <ProtectedRoute exact path="/" component={Home} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
           </Switch>
