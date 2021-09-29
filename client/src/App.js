@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import FetchUser from './components/FetchUser';
 import ProtectedRoute from './components/ProtectedRoute';
 import Home from './pages/Home';
+import MyPosts from './pages/MyPosts';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Container>
           <Switch>
             <ProtectedRoute exact path="/" component={Home} />
+            <ProtectedRoute exact path="/my_posts" component={MyPosts} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
           </Switch>
